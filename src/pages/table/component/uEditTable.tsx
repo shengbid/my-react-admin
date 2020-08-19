@@ -1,5 +1,5 @@
 import React, {useState} from 'react'
-import { Table } from 'antd'
+import { Table, Button } from 'antd'
 import './style.less'
 
 export interface itemProps {
@@ -43,6 +43,20 @@ const UEditTable = () => {
     setSourceData(newData)
   }
 
+  // 提交
+  const submit = () => {
+    const newData: itemProps[] = [...sourceData]
+    newData.map((item: itemProps) => {
+      if (item.value || !item.errTip) {
+        item.errorFiled = false
+      } else {
+        item.errorFiled = true
+      }
+      return item
+    })
+    setSourceData(newData)
+  }
+
   const columns = [
     {
       title: '业务字段名称',
@@ -68,14 +82,19 @@ const UEditTable = () => {
     },
   ]
   return (
-    <Table
-      bordered
-      dataSource={sourceData}
-      columns={columns}
-      pagination={false}
-      rowKey='id'
-      style={{ maxHeight: '350px', overflow: 'auto' }}
-    />
+    <div>
+      <Table
+        bordered
+        dataSource={sourceData}
+        columns={columns}
+        pagination={false}
+        rowKey='id'
+        style={{ maxHeight: '350px', overflow: 'auto' }}
+      />
+      <Button type="primary" onClick={submit} style={{ marginTop: 16 }}>
+        submit
+      </Button>
+    </div>
   )
 }
 

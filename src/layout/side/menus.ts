@@ -61,6 +61,13 @@ const menus: menuProp[] = [
         pathname: '/table',
         icon: 'InsertRowAboveOutlined',
         isMenu: true,
+      },
+      {
+        key: '5-2',
+        title: '文件上传',
+        pathname: '/upload',
+        icon: 'ArrowUpOutlined',
+        isMenu: true,
       }
     ]
   }, {

@@ -33,6 +33,10 @@ const Table = Loadable({
   loading: Loading,
   loader: ()=>import('../pages/table/index')
 })
+const Upload = Loadable({
+  loading: Loading,
+  loader: ()=>import('../pages/upload/index')
+})
 
 export default [
   {
@@ -66,6 +70,10 @@ export default [
   {
     path: '/table',
     component: Table
+  },
+  {
+    path: '/upload',
+    component: Upload
   }
 ]
 
