@@ -19,7 +19,7 @@ const Goods = Loadable({
 })
 const Detail = Loadable({
   loading: Loading,
-  loader: ()=>import('../pages/detail/detail')
+  loader: ()=>import('../pages/detail/index')
 })
 const Nest = Loadable({
   loading: Loading,
@@ -35,7 +35,11 @@ const Table = Loadable({
 })
 const Upload = Loadable({
   loading: Loading,
-  loader: ()=>import('../pages/upload/index')
+  loader: ()=>import('./Demo/upload/index')
+})
+const Tree = Loadable({
+  loading: Loading,
+  loader: ()=>import('./Demo/tree/index')
 })
 
 export default [
@@ -74,6 +78,10 @@ export default [
   {
     path: '/upload',
     component: Upload
+  },
+  {
+    path: '/tree',
+    component: Tree
   }
 ]
 

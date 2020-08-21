@@ -68,6 +68,13 @@ const menus: menuProp[] = [
         pathname: '/upload',
         icon: 'ArrowUpOutlined',
         isMenu: true,
+      },
+      {
+        key: '5-3',
+        title: 'Tree树形组件',
+        pathname: '/tree',
+        icon: 'BranchesOutlined',
+        isMenu: true,
       }
     ]
   }, {

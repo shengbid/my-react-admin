@@ -51,3 +51,19 @@ export function getKeysByProps(data: any[], id: string | number, props: string |
   render(data)
   return selectKeys
 }
+
+// antd tree树形匹配方法
+export function getParentKey( tree: any, key: number | string) {
+  let parentKey: any[] = []
+  for (let i = 0; i < tree.length; i++) {
+    const node = tree[i];
+    if (node.children) {
+      if (node.children.some((item: any) => item.key === key)) {
+        parentKey = node.key;
+      } else if (getParentKey(key, node.children)) {
+        parentKey = getParentKey(key, node.children);
+      }
+    }
+  }
+  return parentKey;
+}

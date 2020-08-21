@@ -9,6 +9,7 @@ const Nest = () => {
 
   const getFileList = async() => {
     const res = await getFiles()
+    console.log(res)
     if (res.data) {
       setFileList(res.data.fileList)
     }
