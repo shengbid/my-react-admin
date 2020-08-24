@@ -1,12 +1,15 @@
 import React, { useEffect, useState } from 'react';
 import { Tree, Input } from 'antd'
 import { getDeptList } from '@/services/dept'
-import { getFathersById } from '@/commons/utils'
+import { 
+  // getFathersById,
+  getParentKey,
+ } from '@/commons/utils'
 import { DeleteOutlined } from '@ant-design/icons'
 import './style.less'
 
 const Detail = () => {
-  const [expandedKeys, setExpandedKeys] = useState([])
+  const [expandedKeys, setExpandedKeys] = useState(['0-0', '0-0-0'])
   const [treeData, setTreeData] = useState<any[]>([])
   const [selectdKeys, setSelectdKeys] = useState<any[]>([])
   const [checkedKeys, setCheckedKeys] = useState<any[]>([])
@@ -17,8 +20,8 @@ const Detail = () => {
   const generateList = (data: any, dataList: any[]) => {
     for (let i = 0; i < data.length; i++) {
       const node = data[i];
-      const { key } = node;
-      dataList.push({ key, title: key });
+      const { key, title } = node;
+      dataList.push({ key, title, });
       if (node.children) {
         generateList(node.children, dataList);
       }
@@ -38,21 +41,19 @@ const Detail = () => {
     
     let { value } = e.target
     value = String(value).trim()
-    if (!value) {
-      return
-    }
     const dataList: any[] = generateList(treeData, [])
     let expandedKeys: any = dataList
       .map((item: any) => {
         if (item.title.indexOf(value) > -1) {
-          return getFathersById(treeData, item.key, 'key')
+          // return getFathersById(treeData, item.key, 'key')
+          return getParentKey(item.key, treeData)
         }
         return null;
       })
       .filter((item: any, i: number, self: any) => item && self.indexOf(item) === i)
 
-    expandedKeys = expandedKeys.length ? expandedKeys[0] : []
-    // console.log(22, dataList, value, expandedKeys)
+    // expandedKeys = expandedKeys.length ? expandedKeys[0] : []
+    console.log(26, expandedKeys)
     setExpandedKeys(expandedKeys)
     setAutoExpandParent(true)
     setSearchValue(value)
@@ -60,6 +61,7 @@ const Detail = () => {
 
   // 树节点展开/收缩
   const onExpand = (expandedKeys: any) => {
+    console.log(22, expandedKeys)
     setExpandedKeys(expandedKeys)
     setAutoExpandParent(false)
   }
@@ -135,6 +137,7 @@ const Detail = () => {
               expandedKeys={expandedKeys}
               autoExpandParent={autoExpandParent}
               checkable
+              defaultExpandAll
               onCheck={checkDep}
               checkedKeys={checkedKeys}
               checkStrictly

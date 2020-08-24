@@ -53,8 +53,8 @@ export function getKeysByProps(data: any[], id: string | number, props: string |
 }
 
 // antd tree树形匹配方法
-export function getParentKey( tree: any, key: number | string) {
-  let parentKey: any[] = []
+export function getParentKey( key: number | string, tree: any): any {
+  let parentKey
   for (let i = 0; i < tree.length; i++) {
     const node = tree[i];
     if (node.children) {
