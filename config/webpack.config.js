@@ -450,8 +450,9 @@ module.exports = function(webpackEnv) {
               use: getStyleLoaders({
                 importLoaders: 1,
                 sourceMap: isEnvProduction && shouldUseSourceMap,
-                modules: true,
-                getLocalIdent: getCSSModuleLocalIdent,
+                modules: {
+                  getLocalIdent: getCSSModuleLocalIdent,
+                },
               }),
             },
             // Opt-in support for SASS (using .scss or .sass extensions).
@@ -491,15 +492,21 @@ module.exports = function(webpackEnv) {
             {
               test: lessRegex,
               exclude: lessModuleRegex,
-              use: getStyleLoaders({ importLoaders: 2 }, 'less-loader'),
+              use: getStyleLoaders({ 
+                importLoaders: 2,
+                sourceMap: isEnvProduction && shouldUseSourceMap,
+              }, 'less-loader'),
+              sideEffects: true,
             },
             {
               test: lessModuleRegex,
               use: getStyleLoaders(
                 {
                   importLoaders: 2,
-                  modules: true,
-                  getLocalIdent: getCSSModuleLocalIdent,
+                  sourceMap: isEnvProduction && shouldUseSourceMap,
+                  modules: {
+                    getLocalIdent: getCSSModuleLocalIdent,
+                  },
                 },
                 'less-loader'
               ),
