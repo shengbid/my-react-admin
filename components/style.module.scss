@@ -1,0 +1,90 @@
+.processUl {
+  position: absolute;
+  left: 10px;
+  bottom: 8px;
+  font-size: 0;
+  background-color: #fff;
+  border: 1px solid #dcdfe6;
+  display: flex;
+  flex-direction: row;
+  border-radius: 4px;
+  padding: 0;
+  li {
+    text-align: center;
+    width: 44px;
+    font-size: 14px;
+    border-left: 1px solid #dcdfe6;
+    margin-left: -1px;
+    color: #606266;
+    &:hover {
+      color: #1890ff;
+      background-color: #e8f4ff;
+    }
+    .ant-btn {
+      border: none !important;
+      background: none !important;
+    }
+  }
+}
+
+.sourceContaier {
+  height: calc(100vh - 200px);
+  overflow-y: auto;
+  overflow-x: hidden;
+  .CodeMirror {
+    height: 100%;
+  }
+}
+
+.processContanier {
+  display: flex;
+  .ModelerContainer {
+    min-height: 655px;
+    flex: 1;
+    background-image: linear-gradient(90deg, hsla(0, 0%, 86.3%, 0.5) 6%, transparent 0),
+      linear-gradient(hsla(0, 0%, 75.3%, 0.5) 6%, transparent 0);
+    background-size: 15px 15px;
+  }
+  .propertyContanier {
+    overflow-y: auto;
+    background: #fff;
+    flex-basis: 360px;
+  }
+}
+
+.userContainer {
+  .userList {
+    display: flex;
+    border: 1px solid #ccc;
+    .userLeft {
+      flex: 1;
+      border-right: 1px solid #ccc;
+      height: 390px;
+      overflow: auto;
+      padding-left: 10px;
+    }
+    .userRight {
+      flex: 1;
+      height: 390px;
+      overflow: auto;
+      padding-left: 10px;
+      .userInfo {
+        display: inline-block;
+        max-width: 250px;
+        white-space: nowrap;
+        text-overflow: ellipsis;
+        padding-left: 10px;
+        padding-top: 12px;
+      }
+    }
+  }
+  .selectList {
+    border: 1px solid #ccc;
+    height: 80px;
+    border-top: none;
+    .selectItem {
+      display: inline-block;
+      padding: 10px 15px;
+    }
+  }
+}
