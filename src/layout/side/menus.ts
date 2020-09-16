@@ -75,6 +75,27 @@ const menus: menuProp[] = [
         pathname: '/tree',
         icon: 'BranchesOutlined',
         isMenu: true,
+      },
+      {
+        key: '5-4',
+        title: 'checkBox多选',
+        pathname: '/checkBox',
+        icon: 'CheckSquareOutlined',
+        isMenu: true,
+      }
+    ]
+  }, {
+    key: '7',
+    title: '流程管理',
+    isMenu: true,
+    icon: 'AppstoreOutlined',
+    children: [
+      {
+        key: '7-1',
+        title: '流程设计',
+        pathname: '/process/design',
+        icon: 'AppstoreOutlined',
+        isMenu: true,
       }
     ]
   }, {

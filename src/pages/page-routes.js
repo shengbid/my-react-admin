@@ -41,6 +41,14 @@ const Tree = Loadable({
   loading: Loading,
   loader: ()=>import('./Demo/tree/index')
 })
+const CheckBox = Loadable({
+  loading: Loading,
+  loader: ()=>import('./Demo/checkBox/index')
+})
+const ProcssDsign = Loadable({
+  loading: Loading,
+  loader: ()=>import('./design/index')
+})
 
 export default [
   {
@@ -82,6 +90,14 @@ export default [
   {
     path: '/tree',
     component: Tree
+  },
+  {
+    path: '/checkBox',
+    component: CheckBox
+  },
+  {
+    path: '/process/design',
+    component: ProcssDsign
   }
 ]
 
