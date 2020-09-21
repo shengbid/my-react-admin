@@ -16,7 +16,7 @@ const TableList: React.FC<{}> = () => {
     <div>
       <div style={{ padding: '20px', background: '#fff' }}>
         <Tabs defaultActiveKey='0' onChange={(key: string) => { setTab(key) }}>
-          {['流程设计器', 'XML Source'].map((v, i) => {
+          {['流程设计器', 'XML 源码'].map((v, i) => {
             return <TabPane tab={v} key={String(i)}>
               {tab === '0'
                 ? <ProcessInit setXml={setXmls} hidden={(tab === '0')} />
