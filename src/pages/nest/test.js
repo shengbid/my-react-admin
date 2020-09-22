@@ -716,7 +716,57 @@ mergePromise([ajax1, ajax2, ajax3]).then(data => {
 //     console.error(err);
 //   });
 
-    
+    const arrs = [
+      {
+        id: '1',
+        name1: 'name1',
+        children1: [
+          {
+            id: '1-1',
+            name2: 'name2',
+            children2: [
+              {
+                id: '1-1-1',
+                name3: 'name3'
+              }
+            ]
+          }
+        ]
+      }
+    ]
+
+    function handleTreeData(data) {
+      const newData = []
+      data.forEach(item => {
+        const obj = {
+          id: item.id,
+          label: item.name1,
+          children: []
+        }
+        item.children1.forEach(ss => {
+          const obj1 = {
+            id: ss.id,
+            label: ss.name2,
+            children: []
+          }
+          obj.children.push(obj1)
+          ss.children2.forEach(dd => {
+            const obj2 = {
+              id: dd.id,
+              label: dd.name3,
+            }
+            obj1.children.push(obj2)
+            
+          })
+        })
+        newData.push(obj)
+      })
+      console.log(newData)
+      return newData
+    }
+
+    handleTreeData(arrs)
+
 }
 
 export default test

@@ -1,7 +1,7 @@
 import React from 'react'
-// import test from './test'
+import test from './test'
 
-// test()
+test()
 
 const Nest = () => {
   return (
